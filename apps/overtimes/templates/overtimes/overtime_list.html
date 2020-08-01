@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block main %} 
+    Banco de Horas
+<br>
+{% for overtime in object_list %}
+    <a href="{% url 'update_overtime' overtime.id %}">
+        {{ overtime }}</a>
+    <a href="{% url 'delete_overtime' overtime.id %}" >Apagar</a><br />
+{% endfor %}
+
+{% if not object_list %}
+    <h3>Não existem registros de hora extra no banco de dados</h3>
+{% endif %}
+
+    <a href="{% url 'create_overtime' %}" class="btn btn-info">Novo</a>
+{% endblock %}
